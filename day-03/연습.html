@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 셀 병합 다른방법 -->
+    <tr>
+      <!-- prettier-ignore -->
+      <th scope="row" rowspan="3"><label for="userAdress">거주지(주소)</label>
+        </th>
+      <td>
+        <!-- prettier-ignore -->
+        <div>
+                <input type="text" name="postalcode"  id="userAdress" placeholder="우편번호를 입력하세요" readonly required/>
+                <button>우편번호 찾기</button>
+              </div>
+        <div><input type="text" /></div>
+        <div><input type="text" /></div>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">성별</th>
+      <td>
+        <!-- prettier-ignore -->
+        <div>
+          <input type="radio" name="" id="male" /><label for="male">남자</label>
+          <input type="radio" name="" id="male" /><label for="female">여자</label>
+        </div>
+      </td>
+    </tr>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+body {
+  font-family: "pretendard", "Dotum", "돋움", sans-serif;
+  color: #111;
+}
+p {
+  line-height: 1.5;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+input,
+textarea {
+  font-family: inherit;
+}
+/* block 요소를 옆으로 나란히 놓는 방법  flex, grid
+flex 는 부모 자식의 관계에 설정 가능하다. 가장 위에 있는 태그를 사용 */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 50px;
+  /* flex-direction에 의해 결정된 main-sxis 정렬 */
+  position: fixed; /*글자 화면에 고정/ fixed는 좌표지정 가능*/
+  /* absolute는 글자 고정 안된다. 같이 움직임 */
+  color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 99999; /*링크인식 안돼서 사용  /  position 태그가 없으면 사용못함 */
+}
+header h1 a {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+header h1 a img {
+  height: 50px;
+}
+header nav ul {
+  display: flex;
+  font-size: 18px;
+  font-weight: 500;
+}
+/* inline 요소는 넓이 높이를 가지지 않는다. */
+header nav ul li a {
+  display: flex;
+  /* 세로로 보내기 위해서 중앙 flax를 사용 */
+  align-items: center;
+  height: 100px;
+  /* width:150px; */
+  padding-left: 50px;
+  padding-right: 50px;
+  /* border: 1px solid #f00; */
+}
+header .link {
+  border: 2px solid #fff;
+  padding: 10px 20px 10px 20px; /*상우하좌/시계방향*/
+  border-radius: 100px 100px 100px 100px; /* = border-radius:100px; */
+
+  /* padding:10px 20px 10px;  상/좌우같을때 */
+  /* padding:10px 20px; 상하같을때/좌우같을때 */
+
+  /* padding-left: 20px;
+   padding-right: 20px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border-top-left-radius: 100px;
+   border-top-right-radius: 100px;
+   border-top-top-radius: 100px;
+   border-top-bottom-radius: 100px; */
+}
+.hidden {
+  display: none;
+}
+main section video {
+  width: 100%; /*vw쓰면 전체화면 100vw / 글자에도 사용가능하다 */
+}

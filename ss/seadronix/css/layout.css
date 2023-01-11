@@ -1,0 +1,217 @@
+body {
+  font-family: "Lato", "pretendard", sans-serlf;
+  font-size: 16px;
+  color: #111;
+  /* background-color: #fff; */
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+input,
+textarea {
+  font-family: inherit;
+}
+p {
+  line-height: 1.5;
+}
+img {
+  vertical-align: top; /*이거뭐지???*/
+}
+.hidden {
+  display: none;
+}
+
+:root {
+  --blue: rgb(107, 107, 228);
+  --h2: 44px;
+  --h3: 32px;
+  --gray: #f8f8f8;
+  --red: rgb(240, 8, 8);
+
+  /* 특정지정 / 파란색은 앞으로 저 지정된 색으로 쓴다고 지정*/
+}
+.header {
+  display: flex; /*옆으로 나열. 블럭 요소를 강제로*/
+  flex-direction: row; /*기본이 row*/
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px; /* 두개 쓰면 상 하 */
+  width: 100%;
+  box-sizing: border-box; /*패딩이랑 보더값 같이 포함해서 쓰기 위해서*/
+  position: fixed; /*relative 현재기준 fixed body(화면)기준 absolute 부모 기준
+  필요할때는 넓이를 억지로 줬다.  */
+  color: #fff;
+  z-index: 99;
+  height: 100px; /*댑스02를 포지션으로 빼놓아서 적어준다./ overflow:hidden 적으면 밑에 있는건
+  잘라버린다. 목차 아래가 안나오게 된다.*/
+
+  /*0106수정*/
+  transition: all 0.25s ease; /*자바스크립트 하고 옮*/
+}
+
+/* 0106 수정 */
+.header .logo a .logo__img--dark {
+  opacity: 0;
+}
+.header.on {
+  background-color: rgba(225, 225, 225, 0.75);
+  box-shadow: 0 3px 10px 10px 0 rgba(0, 0, 0, 0.2); /*x , y, 번지는 정도, 스프레드, 그림자 색*/
+  backdrop-filter: blue(10px);
+  color: #111;
+}
+/* 0106 수정 */
+
+.header .logo a {
+  display: flex; /*a는 inline이라 height 인식 못해서 사용*/
+  height: 100px; /*자식의 img가 50이라*/
+  align-items: center; /*나중에 이거 다시 한번 보기*/
+  font-size: var(--font-size);
+}
+/* 0106수정 */
+.header .logo a img {
+  height: 50px;
+  position: absolute;
+  transition: all 0.25s ease;
+}
+/* 스크롤 내릴때 로고 색 바뀌는 설정 ~ */
+.header .logo a .logo__img--dark {
+  opacity: 0;
+}
+.header .logo a .logo__img--light {
+  opacity: 1;
+}
+.header.on .logo a .logo__img--dark {
+  opacity: 1;
+}
+.header.on .logo a .logo__img--light {
+  opacity: 0;
+}
+/* ~ 스크롤 내릴때 로고 색 바뀌는 설정 */
+
+/* ~ 0106 수정 */
+
+.gnb .list {
+  display: flex; /*li 태그에는 인식이 안돼서 부모태그인 ul에 준다*/
+  /* a, span , em , input */
+}
+.gnb .list > li {
+  position: relative; /*뎁스의 부모 / li태그들 나란히 하기 위해서 / li기준으로 하기 위해서 사용*/
+}
+
+.gnb .list > li > a {
+  /* > 꺽쇄 넣으면 한단계씩 내려간다 company만*/
+  display: flex; /* a span em (인라인 태그/display 설정을 안하면 높이가 먹지 않는다) */
+  height: 100px;
+  align-items: center;
+  text-transform: uppercase; /*대문자로 만들어주기*/
+  font-size: 18px;
+  font-weight: 700;
+  /* padding-left: 30px; 글자들 여백이 일정하다 3개쓰면 상 좌우 하단
+    padding-right: 40px; */
+  padding: 0 30px;
+  transition: color 0.25s ease-out; /*수치로 바뀔수 있는건 다 사용가능*/
+}
+.gnb.list > li:hover > a {
+  color: #f00;
+  /* transition: color 0.25s ease; */
+}
+
+/* 가상  마우스가 올라갔을때*/
+/*
+.gnb .list > li > a:hover {
+  /*> 꺽쇄 넣으면 한단계씩 내려간다 list 애들은 효과x 
+  color:red
+  transition: color 0.25s ease; /*커서 반응하는 속도 조절 / 단위 꼭 쓰기*-> 내릴때도 하고싶으면 이걸 li a 태그로 옮기기*/
+
+/* ease 곡선의 텐션(가속)을 줄 수 있다. / linear ->가속이 낮다 */
+
+.gnb .list > li:hover .depth02 {
+  /* display: block; */
+  opacity: 1;
+  pointer-events: auto; /*처음에만 안되고 그다음부터는 가능하게*/
+}
+
+/*
+.gnb .list > li > a:hover + .depth02{/*한칸 띄우면 자식 / +하면 형제 
+    display: block;  /*내려가면서 hover가 풀려서 링크를 못누름
+}
+*/
+
+.gnb .list > li .depth02 {
+  /*li가 부모*/
+  background-color: #fff;
+  color: #666;
+  text-transform: uppercase;
+  padding: 10px;
+  font-weight: 700;
+  position: absolute; /*레이아웃에서 보이지 않아야 되기 때문에*/
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  pointer-events: none; /*사용자가 마우스를 인식 못하게 하는거 */
+  opacity: 0;
+  border-radius: 10px;
+  transition: opacity 0.5s ease;
+  /* 수정0106 */
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  /*display;none;*/
+}
+.gnb .list > li .depth02:before {
+  /*가상*/
+  content: ""; /*가상 할꺼면 콘텐츠 필수*/
+  display: block;
+  background-color: #f00; /*확인용 / 나중에 지우기*/
+  height: 20px;
+  width: 100%;
+  position: absolute; /*부모가 포지션이 있으니까 줌/ avsolute-> 넓이가 사라진다*/
+  left: 0;
+  top: -20px;
+}
+.gnb .list > li .depth02 li a {
+  display: flex; /*a는 inline라 block이나 flex로 바꿔야 된다.*/
+  padding: 10px 0;
+  justify-content: center; /*display를 flex로 해서 써줘야 가운데된다.*/
+
+  /* display:block;
+   padding: 10px 0;   ->이렇게 써도 된다.  */
+}
+.gnb .list > li .depth02 li a:hover {
+  color: #111;
+}
+
+.language {
+  display: flex;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+.language a {
+  margin-left: 15px;
+}
+.language .active {
+  color: blue;
+}
+main section video {
+  width: 100%;
+}
+/* 0106 수정 */
+.btn-top {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  right: 50px;
+  bottom: 50px;
+  background-color: var(--blue);
+  color: #fff;
+  border-radius: 10px;
+  z-index: 99;
+  border: none;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+  transform: translateY(500px);
+  transition: all 0.25s ease 0.25s; /*딜레이*/
+}
+.btn-top.on {
+  transform: translateY(0);
+}
+/* 0106 수정 */

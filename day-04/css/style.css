@@ -1,0 +1,27 @@
+/* css */
+<style> @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap'); </style>
+body {
+  font-family: "'Noto Sans KR', sans-serif;";
+  color: gray;
+}
+h1 {
+  color: blue;
+  font-size: 50px;
+  font-weight: 100;
+}
+h2 {
+  border: 5px solid black;
+}
+p {
+  font-family: "굴림";
+}
+a {
+  color: gray;
+  /* a태그는 부모로부터 color를 상속받지 않는다 */
+  /*받고 싶으면-> color:inherit; */
+}
+input {
+  font-family: "궁서";
+  /* input은 부모로부터 font-family를 상속받지 않는다 */
+  /* 받고싶으면->  font-family:inherit; */
+}

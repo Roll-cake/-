@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 카톡에 페이지 링크 보내면 나오는 배너 -->
+    <!-- prettier-igonre -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.dauum.net" />
+    <meta property="og:title" content="seadronix" />
+    <meta property="og:site_name" content="seadronix" />
+    <meta property="og:description" content="해양강국을 꿈꾸는" />
+    <meta
+      property="og:image"
+      content="../image/layout/main-overview-logo-1.jpg"
+    />
+    <title>Seadronix AI Autonomous ship</title>
+    <!-- prettier-ignore -->
+    <link rel="shortcut icon" href="../image/laylout/favicon.png" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- prettier-ignore -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet"/>
+    <!-- 구글 lato -->
+    <!-- prettier-ignore -->
+    <link  rel="stylesheet"  as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"/>
+    <!-- 눈누 깃허브 -->
+    <link rel="stylesheet" href="../css/reset.css" />
+    <!-- 화면에 보이는 모든 효과 사라짐 (li,font-weigt..) -->
+    <link rel="stylesheet" href="../css/layout.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="logo">
+        <a href="">
+          <!-- prettier-ignore -->
+          <img src="../image/laylout/logo-dark.svg" alt="Seadronix로고" />
+          <img src="../image/laylout/logo-light.svg" alt="Seadronix로고1" />
+        </a>
+      </h1>
+      <nav class="gnb">
+        <!-- section article nav aside 화면에 나오면 안되지만 제목을 써야된다. -> div태그로 교체 -->
+        <h2 class="hidden">global navigation</h2>
+        <ul class="list">
+          <li>
+            <a href="">COMPANY</a>
+            <ul class="depth02">
+              <li><a href="">vision</a></li>
+              <li><a href="">leader ship</a></li>
+              <li><a href="">partners</a></li>
+              <li><a href="">history</a></li>
+              <li><a href="">certificates</a></li>
+            </ul>
+          </li>
+          <li><a href="">TECHNOLOGY</a></li>
+          <li><a href="">PRODUCT</a></li>
+          <li><a href="">press</a></li>
+          <li><a href="">CAREER</a></li>
+          <li><a href="">CONTACT</a></li>
+        </ul>
+      </nav>
+      <div class="language">
+        <a href="" class="active">KO</a>
+        <a href="">EN</a>
+      </div>
+    </header>
+    <!-- bem (block__element--modifier) -->
+    <main class="main">
+      <section class="visual">
+        <!-- 블럭기준은 언던바 2개 __ -->
+        <h2 class="hidden">main video</h2>
+        <video
+          src="../image/video/video.mp4"
+          autoplay
+          loop
+          muted
+          class="visual__video"
+        ></video>
+        <div class="visual__txt">
+          <h3>
+            port-to-port <br />
+            ai platform company
+          </h3>
+          <p>
+            선박과 항만의 연결, 그리고 자율운항선박이 나아갈 길을<br />
+            씨드로닉스는 Data-driven solution으로 이끌어 갑니다.
+          </p>
+          <p>
+            해양 환경의 안전과 미래를 책임질 씨드로닉스와 함께 미래를
+            준비하세요.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

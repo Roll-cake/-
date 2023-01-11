@@ -1,0 +1,391 @@
+/* 효과 주는게 똑같아서 .about .about__txt a를 btn으로 통합 */
+/* 더 알아보기 a 에 class="btn"
+    문의하기  ->a 에 class="btn btn---white"
+    더 알아보기  a class="btn"  */
+
+.btn {
+  /*.about .about__txt a*/
+  display: inline-flex; /* flex-> 부모넓이 따라가 넓어진다*/
+  /* inline-flex flex를 적용하지만 글자처럼 취급한다. */
+  align-items: center; /* 화살표 아이콘 수정을 위해서 display랑 같이 함*/
+  font-size: 18px;
+  padding: 20px;
+  border: 1px solid var(--blue); /*rgb(107, 107, 228);* ->레이아웃 css에서 수정하고 옴*/
+  color: var(--blue);
+  border-radius: 5px;
+  transition: all 0.25s ease;
+  /* transition: background-color 0.25s ease, color 0.25s ease;*/
+  /* 바뀌는 효과 속도 지정  */
+}
+.btn--white {
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn--round {
+  border-radius: 100px; /* 버튼 만들고 옮 */
+}
+
+.btn span {
+  /*.about .about__txt a span*/
+  transition: transform 0.25s ease; /*화살표 효과? 확인하기 */
+}
+
+.btn:hover {
+  /*.about .about__txt a:hover*/
+  /*마우스 커서 효과*/
+  background-color: var(--blue);
+  color: #fff;
+}
+
+.btn:not(.btn--fixed):hover span {
+  /*15. btn fixed가 아닌 스팬에 커서가 올라갔을때*/
+  transform: translateX(10px);
+
+  /*수정함*/
+}
+
+/* .btn:hover span {
+  /*.about .about__txt a:hover span*/
+/*hover 했을때만 효과를 지정*/
+/* prettier-ignore */
+/*position: relative;
+                relative 현재 내가 위치하고 있는 기준
+                absolute -> 내 부모로 올라가서 포지션을 따진다
+      left: 20px; 포지션이 없으면 안된다
+  transform: translateX(10px); /*포지션없이 가능 / 자기 기준 */
+
+.container {
+  width: 1400px; /*화면이 커도 저 크기만큼 늘어나지 않는다.*/
+  /* outline: 1px solid red; 확인용 */
+  /* margin-left: auto;
+  margin-right: auto; 모니커 크기 - 1400 // atuo로 하면 남아있는 여백을 맞혀준다. */
+  margin: 0 auto;
+}
+strong {
+  font-weight: 700;
+}
+h2 {
+  font-size: var(--h2); /*44px;  레이아웃 수정*/ /*폰트크기 계산16*2.75*/
+  line-height: 1.25; /*줄 간격*/
+  margin-bottom: 30px; /*p랑 간격 넓히기*/
+  /*폰트 사이즈와 줄 간격은 % 된 것*/
+
+  /* .about .container h2{
+    font-size: 100px;
+} -> 같은 h2라도 이쪽이 경로가 더 자세하기 때문에 이걸로 인식한다. */
+}
+.visual__video {
+  width: 100%;
+  height: 100vh; /*기준이 없어 그냥100%면 의미가 없다*/
+  object-fit: cover; /*화면에 꽉채워준다. 높이 가로 -> 이미지도 사용가능/ 기본이 contain */
+}
+.visual__txt {
+  position: absolute; /*영상에 겹치게 하려고*/
+  color: #fff;
+  bottom: 200px;
+  /* top: 100px; 아래쪽 기준이라 buttom*/
+  left: 50px;
+  font-size: 20px;
+}
+.visual__txt h3 {
+  font-size: 64px;
+  font-weight: 900; /*동영상이 영역을 차지하고 있어서 글자가 겹치지 않는다* ->viedo css이용*/
+  margin-bottom: 50px; /*padding 써도 된다 */
+  /* 0106수정 */
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25); /*폰트 그림자*/
+  /* 0106수정 */
+}
+.visual__txt p {
+  margin-bottom: 30px;
+}
+.section {
+  padding: 70px 0;
+}
+.gray {
+  background-color: var(--gray); /*배경에 회색*/
+}
+.section .container {
+  /*전에는 about .container 였는데 수정함*/
+  display: flex; /*옆으로 이동*/
+  /* flex-direction: row;  -> 기본값 row 생략가능*/
+  justify-content: space-between; /* 중앙으로 정렬*/
+  align-items: center; /*about img 크기 수정하고 이거 적었음*/
+}
+.about .about__txt p {
+  font-size: 18px;
+  margin-bottom: 50px; /*a태그와 간격*/
+}
+/* color #ff00ff / rgb (255,0,255) -> rgba(255,255,255,0.5) 투명컬러 */
+
+.about .about__img {
+  width: 50%;
+}
+.about .about__img img {
+  width: 100%; /*이미지 크기 줄이기*/
+}
+.products .container {
+  flex-direction: column; /*위 아래가 바뀜*/
+}
+.products .products-title {
+  display: flex;
+  justify-content: space-between; /*제목좌우로 분리*/
+  width: 100%; /*분리 안돼서 넓이를 줌*/
+}
+.products .products-title p {
+  font-size: 20px;
+}
+.products .products-banner {
+  display: flex; /*그림이 옆으로 감*/
+  justify-content: space-between;
+}
+.products .products-banner a {
+  width: calc(50% - 10px); /*검사로 기능 확인/ 크기가 똑같아진다*/
+  /*단위가 다를때 계산하는 법 calc*/
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  /* radius가 안됨-> 부모한테 줄때는 자식이 짤려야 되어서 overfrow hidden/
+     그게 아니면 img 바로 주면 된다. */
+}
+
+/* pseudo element  / 커서 데면 어둡게 만들고 싶어서*/
+.products .products-banner a::before {
+  /*after, before 가상의 태그/ 내용이 없어서 html에서 이미지에 div 준거랑 같다*/
+  content: ""; /*필수/ 내용 채워넣는거/공백이라도 있어야 된다.*/
+  display: block; /*안쓰면 inline*/
+  width: 100%; /* %단위 안주면 안된다*/
+  height: 100%; /* %단위 안주면 안된다*/
+  background-color: rgba(0, 0, 0, 0); /*a넣으면 투명도*/
+  position: absolute; /*겹치게*/
+  transition: background-color 0.25s ease;
+  /*유무 보기*/
+}
+
+/* element의 쌓이는 순서 (before, after)
+1.위에서 아래로, 아래에 있을수록 위로 올라간다.
+2.만약 position 속성이 있으면 태그의 순서와 상관없이 위로 올라간다. 
+3.쌓이는 순서는 z-index로 바꿀 수 있다.*/
+
+.products .products-banner a:hover::before {
+  background-color: rgba(0, 0, 0, 0.5); /*마우스 올렸을때만 하게 된다*/
+}
+
+.products .products-banner a img {
+  width: 100%; /*높이가 다르게 된다*/
+  height: 480px; /*높이 강제로 맞춘다 ->그림 짜부됨*/
+  object-fit: cover; /*비율 유지가 중요하기 때문에 쓴다. / 전체를 씌우기 위해서 cover 사용*/
+  /*border-radius:20 px -> 부모 (a)한테 안주면 여기다 주면 된다*/
+}
+.products .products-banner a .products-banner__title {
+  position: absolute; /*빠지라고*/
+  color: #fff;
+  left: 30px;
+  top: 30px; /*실행이 안된다. a 포지션필수*/
+  font-size: 20px;
+}
+.products .products-banner a .products-banner__title h3 {
+  font-size: var(--h2);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px; /*밑 간격*/
+}
+.products .products-banner a .more {
+  /*아이콘 클래스 추가*/
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  color: #fff;
+  font-size: 48px;
+}
+.banner {
+  background: rgb(2, 0, 36); /*그라데이션*/
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(107, 107, 228, 1) 0%,
+    rgba(4, 27, 70, 1) 100% /*그라데이션*/
+  );
+  color: #fff;
+}
+.banner h2 {
+  font-size: 28px;
+  /* margin-bottom: 0;*/
+  /*h2에 마진이 있어서 0으로 줘 글자가 중앙으로 가게 함*/
+  align-items: start;
+}
+.tech .container {
+  gap: 20px; /*여백때문에 사용 / gap은 flex 처리한 부모한테 / magin을 안줘도 된다.*/
+}
+.tech .container .tech-item {
+  /*섹션안에 컨테이너는 옆으로 가고 있다 flex*/
+  width: 33.33%;
+}
+.tech .container .tech-banner a {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  display: block; /*이걸 해야 아래꺼 left right가 적용*/
+}
+.tech .container .tech-banner a .tech-banner__title {
+  position: absolute;
+  color: #fff;
+  left: 30px; /*left 랑 right 같은 값이면  width 넓이가 된다.*/
+  right: 30px;
+  top: 30px;
+}
+.tech .container .tech-banner a .tech-banner__title h3 {
+  font-size: var(--h3);
+  margin-bottom: 30px;
+}
+
+.tech .container .tech-banner img {
+  width: 100%;
+  height: 100;
+  object-fit: cover;
+}
+.tech .tech-banner a .more {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  color: #fff;
+  font-size: 64px;
+}
+.tech .tech-title p {
+  /*.tech .container .tech-title p */
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+.tech .tech-title {
+  margin-top: -150px;
+  margin-bottom: 150px;
+}
+
+/* 0106 */
+
+.investors {
+  background-image: url("../image/main/main-investors.jpg"); /* 1. 배경 넣을때  */
+  background-repeat: no-repeat; /**/
+  background-size: cover; /*contain(비율맞추기) / cover 공간 채우기*/
+  background-position: 0 0; /* 위치 조정 첫번째를 기준으로 두번째 이동 /  left top 기본값 */
+}
+.investors .container {
+  flex-direction: column; /*2. 옆으로 가지 말라구*/
+  align-items: start; /*축의 반대*/
+  color: #fff;
+}
+
+.investors .investors__list {
+  background-color: #fff; /*백그라더에 백그랍필터가 있어서 불러처리 가능*/
+  padding: 50px; /*3. 위 아래*/
+  border-radius: 30px;
+  width: 100%; /*옆으로 펼쳐 놓을 수 있다*/
+  display: flex; /*ul자식들이 나열돼야 학기 때문에 사용 /억지로 끼워 맞추기 때문에 계속 옆으로 간다 */
+  flex-wrap: wrap; /*이걸 해야 밑으로 떨어진다*/
+}
+.investors .investors__list li {
+  width: 25%;
+  filter: grayscale(1); /*4.회색으로 바뀐다*/
+  transition: all 0.5s ease; /* 5.2 커서의 효과*/
+}
+.investors .investors__list li:hover {
+  filter: grayscale(0); /*5.커서를 데면 컬러로 바뀜*/
+}
+
+.news .container {
+  flex-direction: column; /*나열하기 위해서*/
+  align-items: start; /*제목을 왼쪽으로*/
+}
+.news .news-title {
+  width: 100%;
+  display: flex; /*옆으로 나열*/
+  justify-content: space-between;
+  align-items: center; /*14 13했는데 이상해서 함*/
+  margin-bottom: 80px; /*13 인덱스에서 스페이스 주고 옮/ 아래 공간*/
+}
+.news .news__img {
+  position: relative; /*얘를 기준으로 잡기 위해*/
+  border-radius: 15px; /*8.txt h3 마진 주고 옴*/
+  overflow: hidden; /*9.위에 있는거 깍아줌*/
+}
+.news .news__img img {
+  width: 100%; /*12.이미지를 둥글게 깍지만/ 여백이 없어진다*/
+}
+.news .news__img .sticker {
+  position: absolute; /*6 img 따라 가라고/ 이미지에 글자 넣는 거*/
+  left: 20px;
+  top: 20px;
+  color: #fff;
+  background-color: var(--red); /*root 설정하고 옮*/
+  padding: 10px; /*상하* -> padding은 포지션을 주면 인라인도 상하패딩 먹음*/
+}
+.news .news__txt h3 {
+  /* 7 글자 간격*/
+  font-size: px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+.news .news-banner {
+  width: 100%; /*10 스와이프 하고 함/ 부모의 너비를 줌*/
+  position: relative; /* 17 btn 하려면 필요하다 / 마지막*/
+}
+.news {
+  overflow: hidden; /*11 스크롤바 사라지게 한다*/
+}
+.news .news-banner .btn {
+  position: absolute; /*16*/
+  top: 50%;
+  z-index: 2; /*17.화살표 밑에 깔려서 올려줌*/
+  transform: translateY(-80px); /*18*/
+  background-color: rgb(255, 255, 255, 0.5);
+}
+.news .news-banner .btn--prev {
+  /*16-1*/
+  left: -50px;
+}
+.news .news-banner .btn--next {
+  /*16-2*/
+  right: -50px;
+}
+
+/* /footer */
+.footer {
+  background-color: var(--blue);
+  padding: 80px 0; /*item 하고 줌*/
+  color: #fff;
+}
+.footer .footer-logo {
+  width: 200px;
+}
+.footer .footer-items {
+  display: flex; /*부모한테 줌*/
+
+  /* 나중에 ~ */
+}
+.footer .footer-items .footer__item {
+  flex-grow: 1; /*남아 있는 여백을 나눠가진다-> 길이는 달라짐 /여백만 균등*/
+  /* width:25% -> 똑같은 길이를 가져 간다 */
+}
+.footer .footer-items .footer__item:nth-child(2) {
+  /*아이템 중에서 2번째를 가리킨다 = ofiice*/
+  /* flex-grow: 2; -> 남아 있는 여백을 2개 많이 먹겠다.->남은 아이템들은 균등하게 1 */
+}
+
+.footer .footer-items .footer__item h2 {
+  font-size: 20px;
+}
+.footer .footer-items .footer__item dl {
+  display: flex;
+  margin-bottom: 10px;
+}
+.footer .footer-items .footer__item dl dt {
+  width: 70px;
+}
+.footer .footer-copyright {
+  margin-top: 30px;
+}
+/* ~ 나중에*/
+
+.btn-top.on {
+  transform: translateY(0);
+}
